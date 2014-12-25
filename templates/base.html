@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>在线试衣间</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link type="" href="" rel="" />  <!--logo-->
+    <link href="" rel="" />    <!--href修改url-->
+    <style>
+    .demo-nav.fixed.fixed-top{
+        z-index:10;
+        width:100%;
+        -webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);
+        box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+    {% block css %}{% endblock %}
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+
+{% include "header.html" %}
+<div class="container">
+{% block content %}{% endblock %}
+</div>
+{% include "footer.html" %}
+
+    <link rel="stylesheet" href="/static/pintuer.css">
+    <script src="/static/jquery.js"></script>
+    <script src="/static/pintuer.js"></script>
+    <script src="/static/respond.js"></script>
+</body>
+</html>

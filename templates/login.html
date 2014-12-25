@@ -1,0 +1,13 @@
+{% if user.isauthenticated != 1 and request.path != '/login' and request.path != '/register'  %}
+<span class="float-right text-small text-gray hidden-l">
+    <a class="text-white" align=right href="/register">注册</a>
+    <span> | </span>
+    <a class="text-white dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">登录</a>
+</span>
+{% else %}
+<span class="float-right text-small text-gray hidden-l">
+    <a class="text-white" align=right href="/profile/{{ user.id }}">{{ user.username }}</a>
+    <span> | </span>
+    <a class="text-white" align=right href="/logout">注销</a>
+</span>
+{% endif %}

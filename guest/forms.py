@@ -31,22 +31,29 @@ class RegistrationForm(forms.Form):
             raise forms.ValidationError('两次密码不一致')
 
 class RegistrationForm2(forms.Form):
-    height = forms.IntegerField(label='身高(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    weight = forms.IntegerField(label='体重(kg)',
-        widget=forms.TextInput(attrs={'size':3,}))
-    bust = forms.IntegerField(label='胸围(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    waist = forms.IntegerField(label='腰围(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    hip = forms.IntegerField(label='臀围(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    arm_length = forms.IntegerField(label='手长(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    shoulder_width = forms.IntegerField(label='肩宽(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    leg_length = forms.IntegerField(label='腿长(cm)',
-            widget=forms.TextInput(attrs={'size':3,}))
-    sculpture = forms.ImageField(label='头像', required=False)
-    introduction = forms.CharField(label='简介',
-            widget=forms.Textarea(attrs={'size':10000}), required=False)
+    height = forms.IntegerField(label='身高(cm)')
+    weight = forms.IntegerField(label='体重(kg)')
+    bust = forms.IntegerField(label='胸围(cm)')
+    waist = forms.IntegerField(label='腰围(cm)')
+    hip = forms.IntegerField(label='臀围(cm)')
+    arm_length = forms.IntegerField(label='手长(cm)')
+    shoulder_width = forms.IntegerField(label='肩宽(cm)')
+    leg_length = forms.IntegerField(label='腿长(cm)')
+    sculpture = forms.ImageField(label='个人头像', required=False)
+    introduction = forms.CharField(label='个人简介', widget=forms.Textarea(attrs={'size':10000}), required=False)
+
+class RegistrationForm3(forms.Form):
+    nickname = forms.CharField(label='昵称', max_length=20)
+    storename = forms.CharField(label='店名', max_length=30)
+    email = forms.EmailField(label='邮箱')
+    telephone = forms.CharField(label='电话', max_length=11)
+    company = forms.CharField(label='公司', max_length=100)
+    link = forms.URLField(label='链接')
+    sculpture = forms.ImageField(label='头像')
+    introduction = forms.CharField(label='简介', widget=forms.Textarea(attrs={'size':10000}), required=False)
+
+class LoginForm(forms.Form):
+    username = forms.CharField(label='用户名')
+    password = forms.CharField(label='密码',
+            widget=forms.PasswordInput())
+

@@ -23,7 +23,7 @@
       <div class="line" style="margin-left:4%;">
         <div class="xl12 xs3 xm3 xb2"><button class="button icon-navicon
                 float-right" data-target="#header-demo"></button><a
-        target="_blank" href="home.html"><img src="static/images/0.jpg" alt="logo" width="32" height="32" class="swing-hover"/></a></div>
+        target="_blank" href="/home"><img src="static/images/0.jpg" alt="logo" width="32" height="32" class="swing-hover"/></a></div>
         <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
 <!--    
           <div class="xs8 xm6 xb5 padding-small">
@@ -34,7 +34,7 @@
 -->    
           <div class="padding-small">
 			<span class="float-right text-small text-gray hidden-l">
-			  <a class="text-white" align=right href="register1.html">注册</a><span> | </span><a class="text-white dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">登录</a>
+			  <a class="text-white" align=right href="/register">注册</a><span> | </span><a class="text-white dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">登录</a>
 			</span>
           
 
@@ -84,63 +84,26 @@
     <div class="xl12 xm6 x3-left bg" style="border-radius:10px;">
 	<br />
 	
-	<form method="post" class="form-x">	  
+	<form method="post" class="form-x" enctype="multipart/form-data" action="/register/seller">	  
+        {% csrf_token %}
+
+        {% for field in form %}
 		<div class="form-group">
-			<div class="label"><label for="username">姓名</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="20" placeholder="" />
-				</div>
+			<div class="label">
+                <label for="username">{{ field.label }}</label>
+            </div>
+			<div class="field">
+                {{ field }}
+            <span>{{ field.errors }}</span>
+			</div> 
 		</div>
-		<div class="form-group">
-			<div class="label"><label for="username">店名</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="20" placeholder="" />
-				</div>
-		</div>
-		<div class="form-group">
-			<div class="label"><label for="username">邮箱</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="20" placeholder="" />
-				</div>
-		</div>
-		<div class="form-group">
-			<div class="label"><label for="username">电话</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="20" placeholder="" />
-				</div>
-		</div>
-		<div class="form-group">
-			<div class="label"><label for="username">公司</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="20" placeholder="" />
-				</div>
-		</div>
-		<div class="form-group">
-			<div class="label"><label for="username">链接</label></div>
-				<div class="field">
-					<input type="text" class="input input-auto" id="username" name="username" size="50" placeholder="" />
-				</div>
-		</div>
+        {% endfor %}
 		
-		
-		<div class="form-group">
-			<div class="label "><label for="face">头像</label></div>
-				<div class="field ">
-					<a class="button input-file" href="javascript:void(0);">+ 浏览文件<input size="100" type="file" /></a>
-				</div>
-		</div>
-	    <div class="form-group">
-			<div class="label"><label for="readme">简介</label></div>
-				<div class="field">
-					<textarea type="text"  style="width:400px;height:100px;resize:none;"></textarea>
-				</div>
-		</div>
-				
 		<div class="form-group">
 			<div class="label"><strong></strong></div>
 				<div class="button-group">
 					<button type="reset" class="button"><span class="icon-trash-o text-red"></span> 清空</button>			
-					<button type="submit" class="button"><span class="icon-check text-blue"><a href="register4.html"/></span> 提交</button>
+					<button type="submit" class="button"><span class="icon-check text-blue"></span> 提交</button>
 				</div>
 		</div>
 	  
@@ -157,10 +120,10 @@
       <div class="container">
         <div class="navbar">
           <div class="navbar-head"><button class="button bg-gray icon-navicon"
-                  data-target="#navbar-footer"></button><a href="home.html"
+                  data-target="#navbar-footer"></button><a href="/home"
           target="_blank"><img class="logo" src="/static/images/0.jpg" alt="logo" width="32" height="32" align=center/></a></div>
           <div class="navbar-body nav-navicon" id="navbar-footer">
-            <div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="home.html" target="_blank">testing1</a> All Rights Reserved</div>
+            <div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="/home" target="_blank">testing1</a> All Rights Reserved</div>
           </div>
         </div>
       </div>

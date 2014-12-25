@@ -1,0 +1,49 @@
+<!-- <div class="layout padding-small-top padding-small-bottom bg-main bg-inverse fixed"> -->
+<div class="demo-nav padding-small-top padding-small-bottom fixed bg-main">
+    <div class="line" style="margin-left:4%;">
+        <div class="xl12 xs3 xm3 xb2">
+            <button class="button icon-navicon float-right" data-target="#header-demo"></button>
+            <a target="_blank" href="/">
+                <img src="/static/images/0.jpg" alt="logo" width="32" height="32" class="swing-hover"/>
+            </a>
+        </div>
+        <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
+            <div class="padding-small">
+
+                {% include "login.html" %}
+
+                <div id="mydialog">
+                    <div class="dialog"  style="margin:22.5%;">
+                        <div class="dialog-head">
+                            <span class="close rotate-hover"></span>
+                            <strong>请登录</strong>
+                        </div>
+                        <div class="dialog-body">
+                            <!--
+                此处的form，输入用户名和密码
+                需要修改
+-->
+                            <form method="post" class="form form-block">
+                                <div class="form-group">
+                                    <div class="label"><label for="username">账号</label></div>
+                                    <div class="field">
+                                        <input type="text" class="input" id="username" name="username" size="30" data-validate="required:必填" placeholder="手机/邮箱/账号" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="label"><label for="password">密码</label></div>
+                                    <div class="field">
+                                        <input type="password" class="input" id="password" name="password" size="30" data-validate="required:必填" placeholder="请输入密码" />
+                                    </div>
+                                </div>
+                                <div class="form-button" style="margin-left:35%;"><button class="button bg-green" type="submit">登录</button></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+

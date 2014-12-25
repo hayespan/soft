@@ -14,13 +14,15 @@ urlpatterns = patterns('',
     #主页
     url(r'^$',TemplateView.as_view(template_name="home.html")),
     # 第一注册页
-    url(r'^register1.html/$', 'guest.views.register_page'),
+    url(r'^register$', 'guest.views.register_page'),
     # 买家信息注册页
-    url(r'^register1.html/register2/$','guest.views.register_page2'),
+    url(r'^register/buyer$','guest.views.register_page2'),
     # 卖家信息注册页
-    url(r'^register1.html/register3/$', 'guest.views.register_page3'),
+    url(r'^register/seller$', 'guest.views.register_page3'),
     # 注册成功页
-    url(r'^register1.html/register_success$', TemplateView.as_view(template_name="register4.html")),
+    url(r'^register/success$', TemplateView.as_view(template_name="register4.html")),
+
+    url(r'^login$', 'guest.views.login'),
 
     url(r'^admin/', include(admin.site.urls)),
 )
