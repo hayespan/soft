@@ -186,14 +186,65 @@ def modifyBuyerProfile(request):
     修改买家资料
     """
     if request.method == 'POST':
-        form = modify_buyer_profile_form
-        
+        form = modify_buyer_profile_form(request.POST)
+        if form.is_valid():
+            user = request.user
+            b = user.buyerprofile
+            if form.cleaned_data['height']:
+                b.height = form.cleaned_data['height']
+            if form.cleaned_data['weight']:
+                b.weight = form.cleaned_data['weight']
+            if form.cleaned_data['bust']:
+                b.bust = form.cleaned_data['bust'] 
+            if form.cleaned_data['waist']:
+                b.waist = form.cleaned_data['waist']
+            if form.cleaned_data['hip']:
+                b.hip = form.cleaned_data['hip']
+            if form.cleaned_data['arm_length']:
+                b.arm_length = form.cleaned_data['arm_length']
+            if form.cleaned_data['shoulder_width']:
+                b.shoulder_width = form.cleaned_data['shoulder_width']
+            if form.cleaned_data['leg_length']:
+                b.leg_length = form.cleaned_data['leg_length']
+            if form.cleaned_data['nickname']:
+                b.nickname = form.cleaned_data['nickname']
+            if form.cleaned_data['sculpture']:
+                b.sculpture = form.cleaned_data['sculpture']
+            if form.cleaned_data['introduction']:
+                b.introduction = form.cleaned_data['introduction']
+            b.save()
+            return HttpResponseRedirect('/profile/%d' % user.id)
+    return HttpResponseRedirect('/')            
    
 @login_required
 def modifySellerProfile(request):
     """
     修改卖家资料
     """
+    if request.method == 'POST':
+        form = modify_seller_profile_form(request.POST)
+        if form.is_valid():
+            user = request.user
+            s = user.sellerprofile
+            if form.cleaned_data['nickname']:
+                s.nickname = form.cleaned_data['nickname']
+            if form.cleaned_data['storename']:
+                s.storename = form.cleaned_data['storename'] 
+            if form.cleaned_data['email']:
+                user.email = form.cleaned_data['email']
+            if form.cleaned_data['telephone']:
+                s.telephone = form.cleaned_data['telephone']
+            if form.cleaned_data['company']:
+                s.company = form.cleaned_data['company']
+            if form.cleaned_data['link']:
+                s.link = form.cleaned_data['link']
+            if form.cleaned_data['sculpture']:
+                s.sculpture = form.cleaned_data['sculpture']
+            if form.cleaned_data['introduction']:
+                s.introduction = form.cleaned_data['introduction']
+            s.save()
+            return HttpResponseRedirect('/profile/%d' % user.id)
+    return HttpResponseRedirect('/')
 
 
 @login_required
