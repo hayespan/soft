@@ -166,6 +166,14 @@ def user_login(request):
     return HttpResponseRedirect('/')
 
 @login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def home(request):
+    return render_to_response('home.html', RequestContext(request))
+
+@login_required
 def resetPassword(request):
     """
     修改用户密码
@@ -177,7 +185,6 @@ def resetPassword(request):
             newpassword = form.cleaned_data['newpassword1']
             user.set_password(newpassword)
             user.save()
-            return HttpResponseRedirect('/profile/user.id') 
     return HttpResponseRedirect('/')
 
 @login_required
@@ -246,15 +253,6 @@ def modifySellerProfile(request):
             return HttpResponseRedirect('/profile/%d' % user.id)
     return HttpResponseRedirect('/')
 
-
-@login_required
-def user_logout(request):
-    logout(request)
-    return HttpResponseRedirect('/')
-
-def home(request):
-    return render_to_response('home.html', RequestContext(request))
-
 @login_required
 def profile(request, userid):
     """
@@ -269,29 +267,59 @@ def profile(request, userid):
     if(usertmp.id != int(userid)):
         return HttpResponse("errors, you can't access other's page")
 
-    buyer_list = BuyerProfile.objects.all()
-    for buyertmp in buyer_list:
-        if int(userid) == buyertmp.buyer.id:
-            #用户是买家
-            #买家修改资料的表单
-            #modify_buyer_profile_form = Form1()
-            #resetpassword_form = Form3()
-            #return render_to_response('buyer_page.html',
-            #    {'modify_buyer_profile_form':modify_buyer_profile_form,
-            #    'resetpassword_form':resetpassword_form,'profile':buyertmp})
-            return render_to_response('buyer_page.html')
-
-    #都没有找到，说明用户是卖家        
-    seller_list = SellerProfile.objects.all()
-    for sellertmp in seller_list:
-        if int(userid) == sellertmp.seller.id:
-            # modify_seller_profile_form = Form2()
-            # resetpassword_form = Form3()
-            # return
-        # render_to_response('sellr_page.html',{'modify_seller_profile_form':modify_seller_profile_form,
-            # 'resetpassword_form':resetpassword_form, 'profile':sellertmp})
-            return render_to_response('seller_page.html')    
-    
+    resetpassword_form = ResetPasswordForm()
+    try:
+        profile = usertmp.buyerprofile
+        modify_buyer_profile_form = ModifyBuyerProfileForm(
+                initial={
+                    'height': profile.height,
+                    'weight': profile.weight,
+                    'bust': profile.bust,
+                    'waist': profile.waist,
+                    'hip': profile.hip,
+                    'arm_length': profile.arm_length,
+                    'shoulder_width': profile.shoulder_width,
+                    'leg_length': profile.leg_length,
+                    'nickname': profile.nickname,
+                    'introduction': profile.introduction,
+                    }
+                )
+        return render_to_response(
+                'buyer_page.html', 
+                RequestContext(
+                    request, 
+                    {
+                        'modify_buyer_profile_form': modify_buyer_profile_form,
+                        'resetpassword_form': resetpassword_form,
+                        'profile': profile,
+                    }))
+    except:
+        pass
+    try:
+        profile = usertmp.sellerprofile
+        modify_seller_profile_form = ModifySellerProfileForm(
+                initial={
+                    'nickname': profile.nickname,
+                    'storename': profile.storename,
+                    'email': usertmp.email,
+                    'telephone': profile.telephone,
+                    'company': profile.company,
+                    'link': profile.link,
+                    'introduction': profile.introduction,
+                    }
+                )
+        return render_to_response(
+                'seller_page.html', 
+                RequestContext(
+                    request, 
+                    {
+                        'modify_seller_profile_form': modify_seller_profile_form,
+                        'resetpassword_form': resetpassword_form,
+                        'profile': profile,
+                    }))
+    except:
+        pass
+    return HttpResponse('未知错误')
 
 def _show_session(request):
     html = ""
