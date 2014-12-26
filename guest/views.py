@@ -180,8 +180,20 @@ def resetPassword(request):
             return HttpResponseRedirect('/profile/user.id') 
     return HttpResponseRedirect('/')
 
-
+@login_required
+def modifyBuyerProfile(request):
+    """
+    修改买家资料
+    """
+    if request.method == 'POST':
+        form = modify_buyer_profile_form
+        
    
+@login_required
+def modifySellerProfile(request):
+    """
+    修改卖家资料
+    """
 
 
 @login_required
