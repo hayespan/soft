@@ -7,7 +7,7 @@
 
             <!-- 修改资料 -->
             <td align="right" colspan="1">
-                <button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;" data-toggle="click" data-target="#modifyprofile" data-mask="1" data-width="50%" >修改资料</button>
+                <button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;" data-toggle="click" data-target="#mydialog2" data-mask="1" data-width="50%" >修改资料</button>
                 {% block modifyprofile %}
                 {% endblock %}
             </td>
@@ -15,7 +15,7 @@
             <!-- 头像 -->
             <td align=BOTTON  colspan="1">
                 <div class="item" align=center> 
-                    <img src="{{ profile..sculpture.url }}" width="128" height="128" class="img-border radius-circle"> 
+                    <img src="{{ profile.sculpture.url }}" width="128" height="128" class="img-border radius-circle"> 
                 </div>
             </td>
 
@@ -47,11 +47,11 @@
                                         <span>{{ field.errors }}</span>
                                     </div>
                                 </div>
-                                {% endblock %}
+                                {% endfor %}
                                 <div class="form-group">
                                     <div class="form-button" style="margin-left:30%;">
                                         <div class="button dialog-close" type="reset">取消</div>
-                                        <div class="button bg-green" type="submit">确认</div>
+                                        <input class="button bg-green" type="submit" value="提交">
                                     </div>
                                 </div>
                             </form>

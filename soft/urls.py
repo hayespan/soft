@@ -22,16 +22,20 @@ urlpatterns = patterns('',
     # 注册成功页
     url(r'^register/success$', TemplateView.as_view(template_name="register4.html")),
 
+    # profile相关
     url(r'^profile/(?P<userid>\d+)$', 'guest.views.profile'),
-    url(r'^profile/resetpassword$', 'guest.views.resetPassword'),
+    url(r'^profile/resetpasswd$', 'guest.views.resetPassword'),
     url(r'^profile/modify/buyer$', 'guest.views.modifyBuyerProfile'),
     url(r'^profile/modify/seller$', 'guest.views.modifySellerProfile'),
 
+    # 登陆注销
     url(r'^login$', 'guest.views.user_login'),
     url(r'^logout$', 'guest.views.user_logout'),
 
+    # 管理员
     url(r'^admin/', include(admin.site.urls)),
 
+    # 临时
     url(r'^userpage1$', TemplateView.as_view(template_name='userpage1.html')),
 )
 

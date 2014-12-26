@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>试衣间-卖家主页</title>
+    <link rel="stylesheet" href="pintuer.css">
+    <script src="jquery.js"></script>
+    <script src="pintuer.js"></script>
+    <script src="respond.js"></script>
+    <link type="" href="" rel="" />  <!--logo-->
+    <link href="" rel="" />    <!--href修改url-->
+    <style>
+		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
+    </style>
+</head>
+
+<body>
+	<!--导航-->
+    <div class="demo-nav padding-small-top padding-small-bottom fixed bg-main">
+    <div class="layout padding-small-top padding-small-bottom bg-main">
+    
+      <div class="line" style="margin-left:4%;">
+        <div class="xl12 xs3 xm3 xb2"><button class="button icon-navicon float-right" data-target="#header-demo"></button><a target="_blank" href="home.html"><img src="images/0.jpg" alt="logo" width="32" height="32" class="swing-hover"/></a></div>
+        <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
+        <div class="padding-small"> <span class="float-right text-small text-gray hidden-l"> <font color="white">欢迎，</font><a class="text-white" align=right href="#">XXX</a><span> <font color="white">| </font></span><a class="text-white" href="">退出</a> </span> </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+
+<!--滚动屏-->
+<div style="margin-left:12%"  class="banner" data-style="border-blue"> 
+  <!--<div class="carousel"> -->
+  
+  <table width="50%" border="0" cellspacing="8" cellpadding="0">
+    <tr>
+      <td align="right" colspan="1"><div>
+          <button class="button bg-main" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px; "> <a href="#">修改资料</a></button>
+        </div></td>
+      <td align=BOTTON  colspan="1"><div class="item" align=center> <img src="images/微笑.jpg" width="128" height="128" class="img-border radius-circle"> </div></td>    
+    </tr>
+    <tr> 
+      <!--修改密码-->
+      <td align="right" colspan="1"><button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;"data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">修改密码</button>
+        <div id="mydialog">
+          <div class="dialog">
+            <div class="dialog-head"> <span class="close rotate-hover"></span> <strong>修改密码</strong> </div>
+            <div class="dialog-body" >
+			<form method="post" class="form form-block">
+              <table  width="300" >
+                <tr>
+                  <td align = "center"  width="100" >旧密码</td>
+                  <td align="center"><form>
+                      <input type="text" class="input" placeholder="请输入旧密码" />
+                    </form></td>
+                </tr>
+
+                <tr>
+                  <td align="center" width="100">新密码</td>
+                  <td><form>
+                      <input type="text" class="input" placeholder="请输入新密码" />
+                    </form></td>
+                </tr>
+              
+
+                <tr>
+                  <td align="center"  width="100">确认密码</td>
+                  <td><form>
+                      <input type="text" class="input" placeholder="请再输入一次" />
+                    </form></td>
+                </tr>
+                </table>
+            </div>
+				<div class="form-group">
+					<div class="form-button" style="margin-left:30%;">
+						<div class="button dialog-close" type="reset">取消</button></div><span>
+						<div class="button button bg-green" type="submit"><a href="">确认</button></div></span>
+					</div>
+				</div>
+			<form>
+          </div>
+        </div></td>
+      <td align="center"  colspan="1"> XXX</td>
+    </tr>
+    <!--align=center 图片居中对齐--> 
+    <!--        <div class="item" align=center><img src="images/banner2.jpg" width="45%" /></div>  <!--width可改图片宽度--> 
+    <!--        <div class="item" align=center><img src="images/banner3.jpg" width="30%" /></div>  <!--src=图片路径-->
+  </table>
+</div>
+</div>
+<br />
+
+<!--内容-->
+<div class="container" style="margin-left:18%" >
+  <div class="line-big">
+    <div class="xl12 xm8 bg">
+      <div class="line-middle">
+        <h2 class="layout bg-main text-white padding"> 我的商品：</h2>
+        <br />
+        <h3 >商品1</h3>
+        
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/00.jpg" class="radius img-responsive" alt="..."></a>
+            
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/01.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/02.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/03.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong>  </div>
+          </div>
+        </div>
+        <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
+        
+        <br /><br /><br />
+        <h3>商品2</h3>
+        <div class="xl12 xs6 xm4 xb3">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/10.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/11.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/12.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~~</strong> </div>
+          </div>
+        </div>
+        <div class="xl12 xs6 xm4 xb3 bg">
+          <div class="media padding-bottom clearfix"> <a href="#"><img src="images/13.jpg" class="radius img-responsive" alt="..."></a>
+            <div class="media-body"> <strong>戳我~~~~</strong> </div>
+          </div>
+        </div>
+        <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
+      </div>
+      <br /><br /><br />
+      
+      <div align="center"><button class="button bg-sub radius-rounded"><a href="#">添加商品</a></button></div>
+      
+    </div>
+   
+  </div>
+</div>
+<br />
+<br />
+
+    <!--底部-->
+    <div class="layout bg-main bg-inverse">
+      <div class="container">
+        <div class="navbar" style="margin-left:33%">
+          <div class="navbar-head"><button class="button bg-gray icon-navicon" data-target="#navbar-footer"></button><a href="home.html" target="_blank"><img class="logo" src="images/0.jpg" alt="logo" width="32" height="32" align=center/></a></div>
+          <div class="navbar-body nav-navicon" id="navbar-footer">
+            <div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="home.html" target="_blank">testing1</a> All Rights Reserved</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden"><script src="http://s4.cnzz.com/stat.php?id=5952475&web_id=5952475" language="JavaScript"></script></div>
+</body>
+</html>
