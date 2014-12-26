@@ -22,6 +22,8 @@ urlpatterns = patterns('',
     # 注册成功页
     url(r'^register/success$', TemplateView.as_view(template_name="register4.html")),
 
+    url(r'^profile/(?P<userid>\d+)$', 'guest.views.profile'),
+
     url(r'^login$', 'guest.views.user_login'),
     url(r'^logout$', 'guest.views.user_logout'),
 

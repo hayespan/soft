@@ -173,6 +173,23 @@ def user_logout(request):
 def home(request):
     return render_to_response('home.html', RequestContext(request))
 
+@login_required
+def profile(request, userid):
+    """
+    获取用户主页
+    判断用户id是卖家还是买家
+    如果是卖家则返回一个卖家主页seller_page.html
+    如果是买家则返回一个买家主页buyer_page.html
+    """
+    buyer_list = BuyerProfile.objects.all()
+    for buyerprofile in buyer_list:
+        if int(userid) == (buyerprofile.buyer.id):
+            return render_to_response('buyer_page.html')
+
+    #都没有找到，说明用户是卖家        
+    return render_to_response('seller_page.html')    
+    
+
 def _show_session(request):
     html = ""
     name = request.session["username"]
