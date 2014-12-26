@@ -166,6 +166,25 @@ def user_login(request):
     return HttpResponseRedirect('/')
 
 @login_required
+def resetPassword(request):
+    """
+    修改用户密码
+    """
+    if request.method == 'POST':
+        user = request.user
+        form = ResetPasswordForm(request.POST)
+        if form.is_valid():
+            newpassword = form.cleaned_data['newpassword1']
+            user.set_password(newpassword)
+            user.save()
+            return HttpResponseRedirect('/profile/user.id') 
+    return HttpResponseRedirect('/')
+
+
+   
+
+
+@login_required
 def user_logout(request):
     logout(request)
     return HttpResponseRedirect('/')
@@ -181,13 +200,34 @@ def profile(request, userid):
     如果是卖家则返回一个卖家主页seller_page.html
     如果是买家则返回一个买家主页buyer_page.html
     """
+    usertmp = request.user
+    if(usertmp.id == 1):
+        return HttpResponse("管理员账户")
+    if(usertmp.id != int(userid)):
+        return HttpResponse("errors, you can't access other's page")
+
     buyer_list = BuyerProfile.objects.all()
-    for buyerprofile in buyer_list:
-        if int(userid) == (buyerprofile.buyer.id):
+    for buyertmp in buyer_list:
+        if int(userid) == buyertmp.buyer.id:
+            #用户是买家
+            #买家修改资料的表单
+            #modify_buyer_profile_form = Form1()
+            #resetpassword_form = Form3()
+            #return render_to_response('buyer_page.html',
+            #    {'modify_buyer_profile_form':modify_buyer_profile_form,
+            #    'resetpassword_form':resetpassword_form,'profile':buyertmp})
             return render_to_response('buyer_page.html')
 
     #都没有找到，说明用户是卖家        
-    return render_to_response('seller_page.html')    
+    seller_list = SellerProfile.objects.all()
+    for sellertmp in seller_list:
+        if int(userid) == sellertmp.seller.id:
+            # modify_seller_profile_form = Form2()
+            # resetpassword_form = Form3()
+            # return
+        # render_to_response('sellr_page.html',{'modify_seller_profile_form':modify_seller_profile_form,
+            # 'resetpassword_form':resetpassword_form, 'profile':sellertmp})
+            return render_to_response('seller_page.html')    
     
 
 def _show_session(request):
