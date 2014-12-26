@@ -1,16 +1,20 @@
-{% extends "base.html" %}
-{% block content %}
-<!--注册-->
-<div class="step">
-    <div class="step-bar active" style="width:33%;"><span class="step-point">1</span><span class="step-text">基本信息</span></div>
-    <div class="step-bar" style="width:34%;"><span class="step-point">2</span><span class="step-text">完善资料</span></div>
-    <div class="step-bar" style="width:33%;"><span class="step-point">3</span><span class="step-text">恭喜完成</span></div>
-</div>
-<br />
+{% extends "registerbase.html" %}
+
+{% block step1 %}
+active
+{% endblock %}
+
+{% block step2 %}
+{% endblock %}
+
+{% block step3 %}
+{% endblock %}
+
+{% block regcontent %}
 <div class="container">
     <div class="xl12 xm4 x4-left bg" style="border-radius:10px;">
         <br />
-        <form method="post" class="form-x" action="/register">   
+        <form method="post" class="form-x" action="/register">
             {% csrf_token %}
             {% for field in form %}
             <div class="form-group">

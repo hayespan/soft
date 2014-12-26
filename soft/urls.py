@@ -12,7 +12,7 @@ urlpatterns = patterns('',
     # url(r'^$', 'soft.views.home', name='home'),
     # url(r'^soft/', include('soft.foo.urls')),
     #主页
-    url(r'^$',TemplateView.as_view(template_name="home.html")),
+    url(r'^$', 'guest.views.home'),
     # 第一注册页
     url(r'^register$', 'guest.views.register_page'),
     # 买家信息注册页
@@ -22,7 +22,8 @@ urlpatterns = patterns('',
     # 注册成功页
     url(r'^register/success$', TemplateView.as_view(template_name="register4.html")),
 
-    url(r'^login$', 'guest.views.login'),
+    url(r'^login$', 'guest.views.user_login'),
+    url(r'^logout$', 'guest.views.user_logout'),
 
     url(r'^admin/', include(admin.site.urls)),
 )

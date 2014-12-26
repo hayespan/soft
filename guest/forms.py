@@ -39,6 +39,7 @@ class RegistrationForm2(forms.Form):
     arm_length = forms.IntegerField(label='手长(cm)')
     shoulder_width = forms.IntegerField(label='肩宽(cm)')
     leg_length = forms.IntegerField(label='腿长(cm)')
+    nickname = forms.CharField(label='个人昵称')
     sculpture = forms.ImageField(label='个人头像', required=False)
     introduction = forms.CharField(label='个人简介', widget=forms.Textarea(attrs={'size':10000}), required=False)
 
@@ -54,6 +55,5 @@ class RegistrationForm3(forms.Form):
 
 class LoginForm(forms.Form):
     username = forms.CharField(label='用户名')
-    password = forms.CharField(label='密码',
-            widget=forms.PasswordInput())
+    password = forms.CharField(label='密码')
 

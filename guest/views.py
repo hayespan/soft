@@ -2,6 +2,7 @@
 # Create your views here.
 from datetime import datetime
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from models import *
 from forms import *
 from django.http import HttpResponseRedirect
@@ -31,7 +32,7 @@ def register_page(request):
             return render_to_response('register1.html', variables)
     else:
         form = RegistrationForm()
-        variables = RequestContext(request, {'form':form})
+        variables = RequestContext(request, {'form':form,})
         return render_to_response('register1.html', variables)
 
 @csrf_protect
@@ -53,6 +54,7 @@ def register_page2(request):
                 arm_length = form.cleaned_data['arm_length']
                 shoulder_width = form.cleaned_data['shoulder_width']
                 leg_length = form.cleaned_data['leg_length']
+                nickname = form.cleaned_data['nickname']
                 introduction = form.cleaned_data['introduction']
                 #对其图片进行操作
                 sculpture = request.FILES.get('sculpture')
@@ -70,6 +72,7 @@ def register_page2(request):
                         weight=weight, bust=bust, waist=waist, hip=hip,
                         arm_length=arm_length, shoulder_width=shoulder_width,
                         leg_length=leg_length, 
+                        nickname=nickname,
                         introduction=introduction
                         ) 
                 if sculpture:
@@ -150,19 +153,25 @@ def register_page3(request):
 
 def user_login(request):
     if request.method == 'POST':
-        form = LoginForm(request)
+        form = LoginForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
-            user = authenticate(username, password)
+            user = authenticate(username=username, password=password)
             if user and user.is_active:
                 login(request, user) 
-                return HttpResponseRedirect('/home')
-    return HttpResponseRedirect('/home')
+                return HttpResponseRedirect('/')
+            else:
+                return HttpResponse('login failed.')
+    return HttpResponseRedirect('/')
+
+@login_required
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
 
 def home(request):
-    user = request.user
-    return render_to_response('home.html', RequestContext(request, {'user': user}))
+    return render_to_response('home.html', RequestContext(request))
 
 def _show_session(request):
     html = ""

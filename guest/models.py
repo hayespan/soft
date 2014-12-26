@@ -6,6 +6,7 @@ from django.db.models.signals import post_save
 
 class BuyerProfile(models.Model):
     buyer = models.OneToOneField(User, related_name='buyerprofile')
+    nickname = models.CharField(max_length=30)
     height = models.PositiveSmallIntegerField()
     weight = models.PositiveSmallIntegerField()
     bust = models.PositiveSmallIntegerField()

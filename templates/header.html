@@ -12,35 +12,6 @@
 
                 {% include "login.html" %}
 
-                <div id="mydialog">
-                    <div class="dialog"  style="margin:22.5%;">
-                        <div class="dialog-head">
-                            <span class="close rotate-hover"></span>
-                            <strong>请登录</strong>
-                        </div>
-                        <div class="dialog-body">
-                            <!--
-                此处的form，输入用户名和密码
-                需要修改
--->
-                            <form method="post" class="form form-block">
-                                <div class="form-group">
-                                    <div class="label"><label for="username">账号</label></div>
-                                    <div class="field">
-                                        <input type="text" class="input" id="username" name="username" size="30" data-validate="required:必填" placeholder="手机/邮箱/账号" />
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <div class="label"><label for="password">密码</label></div>
-                                    <div class="field">
-                                        <input type="password" class="input" id="password" name="password" size="30" data-validate="required:必填" placeholder="请输入密码" />
-                                    </div>
-                                </div>
-                                <div class="form-button" style="margin-left:35%;"><button class="button bg-green" type="submit">登录</button></div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

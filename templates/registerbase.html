@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="step">
+    <div class="step-bar {% block step1 %}{% endblock %}" style="width:33%;"><span class="step-point icon-check"></span><span class="step-text">基本信息</span></div>
+    <div class="step-bar {% block step2 %}{% endblock %}" style="width:34%;"><span class="step-point  icon-check"></span><span class="step-text">完善资料</span></div>
+    <div class="step-bar {% block step3 %}{% endblock %}" style="width:33%;"><span class="step-point">3</span><span class="step-text">恭喜完成</span></div>
+</div>
+<br />
+
+{% block regcontent %}
+{% endblock %}
+
+{% endblock %}
+
