@@ -1,133 +1,49 @@
-<!DOCTYPE html>
-<html lang="zh-cn">
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>试衣间testing</title>
-    <link rel="stylesheet" href="/static/pintuer.css">
-    <script src="/static/jquery.js"></script>
-    <script src="/static/pintuer.js"></script>
-    <script src="/static/respond.js"></script>
-    <link type="" href="" rel="" />  <!--logo-->
-    <link href="" rel="" />    <!--href修改url-->
-    <style>
-		.demo-nav.fixed.fixed-top{z-index:8;background:#fff;width:100%;padding:0;border-bottom:solid 3px #0a8;-webkit-box-shadow:0 3px 6px rgba(0, 0, 0, .175);box-shadow:0 3px 6px rgba(0, 0, 0, .175);}
-    </style>
-</head>
+{{ extends "registerbase.html" }}
 
-<body>
-	<!--导航-->
-    <div class="demo-nav padding-small-top padding-small-bottom fixed bg-main">
-    <div class="layout padding-small-top padding-small-bottom bg-main">
-    
-      <div class="line" style="margin-left:4%;">
-        <div class="xl12 xs3 xm3 xb2"><button class="button icon-navicon
-                float-right" data-target="#header-demo"></button><a
-        target="_blank" href="/home"><img src="static/images/0.jpg" alt="logo" width="32" height="32" class="swing-hover"/></a></div>
-        <div class=" xl12 xs9 xm9 xb10 nav-navicon" id="header-demo">
-<!--    
-          <div class="xs8 xm6 xb5 padding-small">
-            <ul class="nav nav-menu nav-inline nav-big">
-              <li><a href="http://www.pintuer.com">首页</a></li>
-            </ul>
-          </div>
--->    
-          <div class="padding-small">
-			<span class="float-right text-small text-gray hidden-l">
-			  <a class="text-white" align=right href="/register">注册</a><span> | </span><a class="text-white dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">登录</a>
-			</span>
-          
+{% block step1 %}
+complete
+{% endblock %}
 
-		  <div id="mydialog">
-			<div class="dialog"  style="margin:22.5%;">
-				<div class="dialog-head">
-				<span class="close rotate-hover"></span>
-				<strong>请登录</strong>
-				</div>
-				<div class="dialog-body">
-				<form method="post" class="form form-block">
-					<div class="form-group">
-						<div class="label"><label for="username">账号</label></div>
-							<div class="field">
-							<input type="text" class="input" id="username" name="username" size="30" data-validate="required:必填" placeholder="手机/邮箱/账号" />
-							</div>
-						</div>
-					<div class="form-group">
-					<div class="label"><label for="password">密码</label></div>
-						<div class="field">
-						<input type="password" class="input" id="password" name="password" size="30" data-validate="required:必填" placeholder="请输入密码" />
-					</div>
-					</div>
-					<div class="form-button" style="margin-left:35%;"><button class="button bg-green" type="submit">登录</button></div>
-				</form>
-				</div>
-			</div>
-		  </div>
-        </div>
-		</div>
-      </div>
-    </div>
-    </div>
-	
-    <br />
-    
-    <!--注册-->
-	
-	<div class="step">
-		<div class="step-bar complete" style="width:33%;"><span class="step-point icon-check"></span><span class="step-text">基本信息</span></span></div>
-		<div class="step-bar active" style="width:34%;"><span class="step-point">2</span><span class="step-text">完善资料</span></div>
-		<div class="step-bar" style="width:33%;"><span class="step-point">3</span><span class="step-text">恭喜完成</span></div>
-	</div>
-	<br />
-	
-	<div class="container">
+{% block step2 %}
+active
+{% endblock %}
+
+{% block step3 %}
+{% endblock %}
+
+{% block regcontent %}
+<div class="container">
     <div class="xl12 xm6 x3-left bg" style="border-radius:10px;">
-	<br />
-	
-	<form method="post" class="form-x" enctype="multipart/form-data" action="/register/seller">	  
-        {% csrf_token %}
+        <br />
 
-        {% for field in form %}
-		<div class="form-group">
-			<div class="label">
-                <label for="username">{{ field.label }}</label>
+        <form method="post" class="form-x" enctype="multipart/form-data" action="/register/seller">	  
+            {% csrf_token %}
+
+            {% for field in form %}
+            <div class="form-group">
+                <div class="label">
+                    <label for="username">{{ field.label }}</label>
+                </div>
+                <div class="field">
+                    {{ field }}
+                    <span>{{ field.errors }}</span>
+                </div> 
             </div>
-			<div class="field">
-                {{ field }}
-            <span>{{ field.errors }}</span>
-			</div> 
-		</div>
-        {% endfor %}
-		
-		<div class="form-group">
-			<div class="label"><strong></strong></div>
-				<div class="button-group">
-					<button type="reset" class="button"><span class="icon-trash-o text-red"></span> 清空</button>			
-					<button type="submit" class="button"><span class="icon-check text-blue"></span> 提交</button>
-				</div>
-		</div>
-	  
-	  </form>
-	  
-	<br />
-	</div>
-	</div>
- 
-	<br />
- 
-    <!--底部-->
-    <div class="layout bg-main bg-inverse">
-      <div class="container">
-        <div class="navbar">
-          <div class="navbar-head"><button class="button bg-gray icon-navicon"
-                  data-target="#navbar-footer"></button><a href="/home"
-          target="_blank"><img class="logo" src="/static/images/0.jpg" alt="logo" width="32" height="32" align=center/></a></div>
-          <div class="navbar-body nav-navicon" id="navbar-footer">
-            <div class="navbar-text navbar-left hidden-s hidden-l">版权所有 &copy; <a href="/home" target="_blank">testing1</a> All Rights Reserved</div>
-          </div>
-        </div>
-      </div>
+            {% endfor %}
+
+            <div class="form-group">
+                <div class="label"><strong></strong></div>
+                <div class="button-group">
+                    <button type="reset" class="button"><span class="icon-trash-o text-red"></span> 清空</button>			
+                    <button type="submit" class="button"><span class="icon-check text-blue"></span> 提交</button>
+                </div>
+            </div>
+
+        </form>
+
+        <br />
     </div>
-    <div class="hidden"><script src="http://s4.cnzz.com/stat.php?id=5952475&web_id=5952475" language="JavaScript"></script></div>
-</body>
-</html>
+</div>
+
+<br />
+{% endblock %}
