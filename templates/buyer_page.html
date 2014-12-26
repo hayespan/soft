@@ -1,4 +1,95 @@
-{% extends "base.html" %}
+{% extends "profilebase.html" %}
 
-{% block cotent %}
+{% block modifyprofile %}
+
+<!-- 买家修改个人资料 -->
+<div id="modifyprofile">
+    <div class="dialog">
+        <div class="dialog-head">
+            <span class="close rotate-hover"></span> 
+            <strong>修改资料</strong> 
+        </div>
+        <div class="dialog-body" >
+            <form method="post" class="form form-block" enctype="multipart/form-data" action="/profile/modify/buyer">
+                {% csrf_token %}
+                {% for field in modify_buyer_profile_form %}
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="id_{{ field.name }}">
+                                {{ field.label }}
+                            </label>
+                        </div>
+                        <div class="field">
+                            {{ field }}
+                            <span>{{ field.errors }}</span>
+                        </div>
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="form-button" style="margin-left:30%;">
+                        <div class="button dialog-close" type="reset">取消</div>
+                        <div class="button bg-green" type="submit">确认</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+{% endblock %}
+
+{% block profilecontent %}
+
+<!--内容-->
+<div class="container" style="margin-left:18%">
+    <div class="line-big">
+        <div class="xl12 xm8 bg">
+            <div class="line-middle">
+                <h2 class="layout bg-main text-white padding"> 我分享过：</h2>
+                <br />
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f3.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f1.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f2.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f0.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f4.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f5.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f6.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~~</strong> </div>
+                    </div>
+                </div>
+                <div class="xl12 xs6 xm4 xb3 bg">
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f7.jpg" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
 {% endblock %}

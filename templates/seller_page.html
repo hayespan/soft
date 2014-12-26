@@ -1,89 +1,71 @@
-{% extends "base.html" %}
+{% extends "profilebase.html" %}
 
-{% block content %}
-<!--滚动屏-->
-<div style="float:left" class="banner" data-style="border-blue"> 
-    <!--<div class="carousel"> -->
-    <table width="50%" border="0" cellspacing="8" cellpadding="0">
-        <tr>
-            <td align="right" colspan="1"><div>
-                    <buton class="button bg-main" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px; "> <a href="#">修改资料</a></button>
-            </div></td>
-            <td align=BOTTON  colspan="1"><div class="item" align=center> <img src="images/板蓝根.gif" width="128" height="128" class="img-border radius-circle"> </div></td>
-        </tr>
-        <tr> 
-            <!--修改密码-->
-            <td align="right" colspan="1"><button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;"data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">修改密码</button>
-                <div id="mydialog">
-                    <div class="dialog">
-                        <div class="dialog-head"> <span class="close rotate-hover"></span> <strong>修改密码</strong> </div>
-                        <div class="dialog-body" >
-                            <form method="post" class="form form-block">
-                                <table  width="300" >
-                                    <tr>
-                                        <td align = "center"  width="100" >旧密码</td>
-                                        <td align="center"><form>
-                                                <input type="text" class="input" placeholder="请输入旧密码" />
-                                        </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center" width="100">新密码</td>
-                                        <td><form>
-                                                <input type="text" class="input" placeholder="请输入新密码" />
-                                        </form></td>
-                                    </tr>
-                                    <tr>
-                                        <td align="center"  width="100">确认密码</td>
-                                        <td><form>
-                                                <input type="text" class="input" placeholder="请再输入一次" />
-                                        </form></td>
-                                    </tr>
-                                </table>
-                            </div>
-                            <div class="form-group">
-                                <div class="form-button" style="margin-left:30%;">
-                                    <div class="button dialog-close" type="reset">取消</button></div><span>
-                                    <div class="button button bg-green" type="submit"><a href="">确认</button></div></span>
-                            </div>
+{% block modifyprofile %}
+
+<!-- 买家修改个人资料 -->
+<div id="modifyprofile">
+    <div class="dialog">
+        <div class="dialog-head">
+            <span class="close rotate-hover"></span> 
+            <strong>修改资料</strong> 
+        </div>
+        <div class="dialog-body" >
+            <form method="post" class="form form-block" enctype="multipart/form-data" action="/profile/modify/seller">
+                {% csrf_token %}
+                {% for field in modify_seller_profile_form %}
+                    <div class="form-group">
+                        <div class="label">
+                            <label for="id_{{ field.name }}">
+                                {{ field.label }}
+                            </label>
                         </div>
-                        <form>
+                        <div class="field">
+                            {{ field }}
+                            <span>{{ field.errors }}</span>
                         </div>
-                </div></td>
-                <td align="center"  colspan="1"> XXX</td>
-            </tr>
-            <!--align=center 图片居中对齐--> 
-            <!--        <div class="item" align=center><img src="images/banner2.jpg" width="45%" /></div>  <!--width可改图片宽度--> 
-            <!--        <div class="item" align=center><img src="images/banner3.jpg" width="30%" /></div>  <!--src=图片路径-->
-        </table>
-    </div>
-</div>
-<br />
+                    </div>
+                {% endfor %}
+                <div class="form-group">
+                    <div class="form-button" style="margin-left:30%;">
+                        <div class="button dialog-close" type="reset">取消</div>
+                        <div class="button bg-green" type="submit">确认</div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+{% endblock %}
+
+{% block profilecontent %}
 
 <!--内容-->
-<div class="container">
+<div class="container" style="margin-left:18%" >
     <div class="line-big">
         <div class="xl12 xm8 bg">
             <div class="line-middle">
                 <h2 class="layout bg-main text-white padding"> 我的商品：</h2>
                 <br />
                 <h3 >商品1</h3>
+
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/00.jpg" class="radius img-responsive" alt="..."></a>
+
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/01.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/02.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/03.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong>  </div>
                     </div>
                 </div>
@@ -92,32 +74,36 @@
                 <br /><br /><br />
                 <h3>商品2</h3>
                 <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/10.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/11.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/12.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~~</strong> </div>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/0.jpg" class="radius img-responsive" alt="..."></a>
+                    <div class="media padding-bottom clearfix"> <a href="#"><img src="images/13.jpg" class="radius img-responsive" alt="..."></a>
                         <div class="media-body"> <strong>戳我~~~~</strong> </div>
                     </div>
                 </div>
                 <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
             </div>
             <br /><br /><br />
+
             <div align="center"><button class="button bg-sub radius-rounded"><a href="#">添加商品</a></button></div>
+
         </div>
+
     </div>
 </div>
 <br />
 <br />
+
 {% endblock %}

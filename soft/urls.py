@@ -23,11 +23,16 @@ urlpatterns = patterns('',
     url(r'^register/success$', TemplateView.as_view(template_name="register4.html")),
 
     url(r'^profile/(?P<userid>\d+)$', 'guest.views.profile'),
+    url(r'^profile/resetpassword$', 'guest.views.resetPassword'),
+    url(r'^profile/modify/buyer$', 'guest.views.modifyBuyerProfile'),
+    url(r'^profile/modify/seller$', 'guest.views.modifySellerProfile'),
 
     url(r'^login$', 'guest.views.user_login'),
     url(r'^logout$', 'guest.views.user_logout'),
 
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^userpage1$', TemplateView.as_view(template_name='userpage1.html')),
 )
 
 if settings.DEBUG:
