@@ -3,7 +3,7 @@ from guest.models import BuyerProfile, SellerProfile
 
 
 class Product(models.Model):
-    sharers = models.ManyToManyField(BuyerProfile, blank=True)
+    sharers = models.ManyToManyField(BuyerProfile, blank=True, null=True)
     owner = models.ForeignKey(SellerProfile)
     name = models.CharField(max_length=30)
     image = models.ImageField(upload_to='item_Photos')
@@ -25,5 +25,5 @@ class Mote(models.Model):
     arm_length = models.IntegerField()
     shoulder_width = models.IntegerField()
     leg_length = models.IntegerField()
-    photo = models.ImageField(upload_to='mote_Photos')
+    photo = models.ImageField(upload_to='item_Photos')
     

@@ -27,13 +27,11 @@ urlpatterns = patterns('',
     url(r'^profile/resetpasswd$', 'guest.views.resetPassword'),
     url(r'^profile/modify/buyer$', 'guest.views.modifyBuyerProfile'),
     url(r'^profile/modify/seller$', 'guest.views.modifySellerProfile'),
+    url(r'^profile/add/item$','items.views.addItem'),
 
     # 登陆注销
     url(r'^login$', 'guest.views.user_login'),
     url(r'^logout$', 'guest.views.user_logout'),
-
-    # 试衣界面
-    url(r'^fitting$', 'items.views.fitting'),
 
     # 管理员
     url(r'^admin/', include(admin.site.urls)),

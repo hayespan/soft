@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from models import *
 from forms import *
+from items.forms import *
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import login, logout, authenticate
@@ -308,6 +309,7 @@ def profile(request, userid):
                     'introduction': profile.introduction,
                     }
                 )
+        add_item_form = AddItemForm()
         return render_to_response(
                 'seller_page.html', 
                 RequestContext(
@@ -316,6 +318,7 @@ def profile(request, userid):
                         'modify_seller_profile_form': modify_seller_profile_form,
                         'resetpassword_form': resetpassword_form,
                         'profile': profile,
+                        'add_item_form':AddItemForm,
                     }))
     except:
         pass
