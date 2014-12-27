@@ -3,39 +3,42 @@
 {% block modifyprofile %}
 
 <!-- 买家修改个人资料 -->
-<div id="myprofile2">
+<div id="mydialog2">
     <div class="dialog">
         <div class="dialog-head">
             <span class="close rotate-hover"></span> 
             <strong>修改资料</strong> 
         </div>
         <div class="dialog-body" >
-            <form method="post" class="form form-block" enctype="multipart/form-data" action="/profile/modify/buyer">
+            <form method="post" class="form" enctype="multipart/form-data" action="/profile/modify/buyer">
                 {% csrf_token %}
-                {% for field in modify_buyer_profile_form %}
-                    <div class="form-group">
-                        <div class="label">
-                            <label for="id_{{ field.name }}">
-                                {{ field.label }}
-                            </label>
-                        </div>
-                        <div class="field">
-                            {{ field }}
-                            <span>{{ field.errors }}</span>
+                <div class="line-small form-inline">
+                    {% for field in modify_buyer_profile_form %}
+                    <div class="x4">
+                        <div class="form-group" >
+                            <div class="label" style="margin-right: 5px;">
+                                <label for="id_{{ field.name }}">
+                                    {{ field.label }}
+                                </label>
+                            </div>
+                            <div class="field">
+                                {{ field }}
+                                <span>{{ field.errors }}</span>
+                            </div>
                         </div>
                     </div>
-                {% endfor %}
+                    {% endfor %}
+                </div>
                 <div class="form-group">
                     <div class="form-button" style="margin-left:30%;">
-                        <div class="button dialog-close" type="reset">取消</div>
-                        <div class="button bg-green" type="submit">确认</div>
+                        <div class="button dialog-close">取消</div>
+                        <input class="button bg-green" type="submit" value="确认"/>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
-
 {% endblock %}
 
 {% block profilecontent %}
