@@ -9,12 +9,14 @@
             <span class="close rotate-hover"></span> 
             <strong>修改资料</strong> 
         </div>
-        <div class="dialog-body" >
+        <div class="dialog-body">
             <form method="post" class="form form-block" enctype="multipart/form-data" action="/profile/modify/seller">
                 {% csrf_token %}
+                <div class="line-small">
                 {% for field in modify_seller_profile_form %}
+                <div class="x4">
                     <div class="form-group">
-                        <div class="label">
+                        <div class="label" style="margin-right: 5px;">
                             <label for="id_{{ field.name }}">
                                 {{ field.label }}
                             </label>
@@ -24,34 +26,44 @@
                             <span>{{ field.errors }}</span>
                         </div>
                     </div>
+                </div>
                 {% endfor %}
+                </div>
                 <div class="form-group">
                     <div class="form-button" style="margin-left:30%;">
-                        <div class="button dialog-close" type="reset">取消</div>
-                        <div class="button bg-green" type="submit">确认</div>
+                        <div class="button dialog-close">取消</div>
+                        <input class="button bg-green" type="submit" value="确认"/>
                     </div>
                 </div>
             </form>
         </div>
-
-
+    </div>
+</div>
 {% endblock %}
 
 {% block profilecontent %}
 
 <!--内容-->
-<div class="container" style="margin-left:18%" >
+<div class="container">
     <div class="line-big">
-        <div class="xl12 xm8 bg">
+        <div class="xl12 bg" align="center">
             <div class="line-middle">
-                <h2 class="layout bg-main text-white padding"> 我的商品：</h2>
-                <br />
+                <h2 class="layout bg-main text-white padding">
+                    我的商品
+                </h2>
+            </div>
                 <h3 >商品1</h3>
 
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/00.jpg" class="radius img-responsive" alt="..."></a>
-
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    <div class="media padding-bottom clearfix">
+                        <a href="#">
+                            <img src="/static/images/00.jpg" class="radius img-responsive" alt="...">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        <strong>
+                            戳我~~~~
+                        </strong>
                     </div>
                 </div>
                 <div class="xl12 xs6 xm4 xb3 bg">
@@ -103,7 +115,5 @@
 
     </div>
 </div>
-<br />
-<br />
 
 {% endblock %}

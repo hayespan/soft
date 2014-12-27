@@ -92,5 +92,5 @@ class ModifySellerProfileForm(forms.Form):
     company = forms.CharField(label='公司', max_length=100, required=False)
     link = forms.URLField(label='链接', required=False)
     sculpture = forms.ImageField(label='头像', required=False)
-    introduction = forms.CharField(label='简介', widget=forms.Textarea(attrs={'size':10000}), required=False)
+    introduction = forms.CharField(label='简介', required=False)
 
