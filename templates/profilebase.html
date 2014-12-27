@@ -1,72 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div style="margin-left:12%" class="banner" data-style="border-blue"> 
-    <table width="50%" border="0" cellspacing="8" cellpadding="0">
-        <tr>
+<div class="line"> 
+    <!-- 头像 -->
+    <div class="item" align="center"> 
+        <img src="{{ profile.sculpture.url }}" width="128" height="128" class="img-border radius-circle"> 
+    </div>
+    <!-- 用户昵称 -->
+    <div align="center" style="margin-top: 10px;">
+        {{ profile.nickname }}
+    </div>
 
-            <!-- 修改资料 -->
-            <td align="right" colspan="1">
-                <button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;" data-toggle="click" data-target="#mydialog2" data-mask="1" data-width="50%" >修改资料</button>
-                {% block modifyprofile %}
-                {% endblock %}
-            </td>
-
-            <!-- 头像 -->
-            <td align=BOTTON  colspan="1">
-                <div class="item" align=center> 
-                    <img src="{{ profile.sculpture.url }}" width="128" height="128" class="img-border radius-circle"> 
-                </div>
-            </td>
-
-        </tr>
-
-        <tr> 
-
-            <!--修改密码-->
-            <td align="right" colspan="1">
-                <button class="button bg-main dialogs" style=" margin-top:0px; margin-left:40px; margin-right:40px; margin-bottom:20px;" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">修改密码</button>
-                <div id="mydialog">
-                    <div class="dialog">
-                        <div class="dialog-head">
-                            <span class="close rotate-hover"></span> 
-                            <strong>修改密码</strong> 
-                        </div>
-                        <div class="dialog-body" >
-                            <form method="post" action="/profile/resetpasswd" class="form form-block">
-                                {% csrf_token %}
-                                {% for field in resetpassword_form %}
-                                <div class="form-group">
-                                    <div class="label">
-                                        <label for="id_{{ field.name }}">
-                                            {{ field.label }}
-                                        </label>
-                                    </div>
-                                    <div class="field">
-                                        <input type="password" class="input" id="id_{{ field.name }}" name="{{ field.name }}" data-validate="required:必填" />
-                                        <span>{{ field.errors }}</span>
-                                    </div>
+    <div class="line" style="margin-top: 20px;">
+        <!-- 修改资料 -->
+        <div class="x6" align="right" style="padding-right:10px;">
+            <button class="button bg-main dialogs" data-toggle="click" data-target="#mydialog2" data-mask="1" data-width="50%">修改资料</button>
+            {% block modifyprofile %}
+            {% endblock %}
+        </div>
+        <!--修改密码-->
+        <div class="x6" align="left" style="padding-left: 10px;">
+            <button class="button bg-main dialogs" data-toggle="click" data-target="#mydialog" data-mask="1" data-width="50%">修改密码</button>
+            <div id="mydialog">
+                <div class="dialog">
+                    <div class="dialog-head">
+                        <span class="close rotate-hover"></span> 
+                        <strong>修改密码</strong> 
+                    </div>
+                    <div class="dialog-body" >
+                        <form method="post" action="/profile/resetpasswd" class="form form-block">
+                            {% csrf_token %}
+                            {% for field in resetpassword_form %}
+                            <div class="form-group">
+                                <div class="label">
+                                    <label for="id_{{ field.name }}">
+                                        {{ field.label }}
+                                    </label>
                                 </div>
-                                {% endfor %}
-                                <div class="form-group">
-                                    <div class="form-button" style="margin-left:30%;">
-                                        <div class="button dialog-close" type="reset">取消</div>
-                                        <input class="button bg-green" type="submit" value="提交">
-                                    </div>
+                                <div class="field">
+                                    <input type="password" class="input" id="id_{{ field.name }}" name="{{ field.name }}" data-validate="required:必填" />
+                                    <span>{{ field.errors }}</span>
                                 </div>
-                            </form>
-                        </div>
+                            </div>
+                            {% endfor %}
+                            <div class="form-group">
+                                <div class="form-button" style="margin-left:30%;">
+                                    <div class="button dialog-close" type="reset">取消</div>
+                                    <input class="button bg-green" type="submit" value="提交">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
-            </td>
-
-            <!-- 用户昵称 -->
-            <td align="center"  colspan="1">
-                {{ profile.nickname }}
-            </td>
-
-        </tr>
-    </table>
+            </div>
+        </div>
+    </div>
 </div>
 <br />
 
@@ -74,4 +62,3 @@
 {% endblock %}
 
 {% endblock %}
-
