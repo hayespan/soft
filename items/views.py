@@ -29,3 +29,22 @@ def fitting(request):
         return HttpResponse('You are admin.')
     return render_to_response('fitting.html', RequestContext(request, {'profile': profile}),)
 
+@login_required
+def addItem(request):
+    """
+    添加商品
+    """
+    if request.method == 'POST':
+        user = request.user
+        form = AddItemForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            caption = form.cleaned_data['caption']
+            newitem = Product(name=name,
+                    caption = caption,
+                    owner = user.sellerprofile
+                    )
+            newitem.save()
+            return HttpResponseRedirect('/profile/%d' % user.id)
+    return HttpResponseRedirect('/')
+

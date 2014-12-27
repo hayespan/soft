@@ -1,0 +1,36 @@
+<div class="line" style="margin-bottom: 10px;" align="center">
+    <button class="button bg-main dialogs" data-toggle="click" data-target="#mydialog3" data-mask="1" data-width="50%">添加商品</button>
+    <div id="mydialog3">
+        <div class="dialog">
+            <div class="dialog-head">
+                <span class="close rotate-hover"></span> 
+                <strong>添加商品</strong> 
+            </div>
+            <div class="dialog-body" >
+                <form method="post" class="form form-block"
+                    enctype="multipart/form-data" action="/profile/add/item">
+                    {% csrf_token %}
+                    {% for field in add_item_form %}
+                        <div class="form-group">
+                            <div class="label">
+                                <label for="id_{{ field.name }}">
+                                    {{ field.label }}
+                                </label>
+                            </div>
+                            <div class="field">
+                                {{ field }}
+                                <span>{{ field.errors }}</span>
+                            </div>
+                        </div>
+                    {% endfor %}
+                    <div class="form-group">
+                        <div class="form-button" style="margin-left:30%;">
+                            <div class="button dialog-close" type="reset">取消</div>
+                            <input class="button bg-green" type="submit" value="确认"/>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
