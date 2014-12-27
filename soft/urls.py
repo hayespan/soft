@@ -32,6 +32,9 @@ urlpatterns = patterns('',
     url(r'^login$', 'guest.views.user_login'),
     url(r'^logout$', 'guest.views.user_logout'),
 
+    # 试衣界面
+    url(r'^fitting$', 'items.views.fitting'),
+
     # 管理员
     url(r'^admin/', include(admin.site.urls)),
 
