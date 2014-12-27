@@ -2,7 +2,7 @@
 
 {% block modifyprofile %}
 
-<!-- 买家修改个人资料 -->
+<!-- 卖家修改个人资料 -->
 <div id="mydialog2">
     <div class="dialog">
         <div class="dialog-head">
@@ -13,21 +13,21 @@
             <form method="post" class="form form-block" enctype="multipart/form-data" action="/profile/modify/seller">
                 {% csrf_token %}
                 <div class="line-small">
-                {% for field in modify_seller_profile_form %}
-                <div class="x4">
-                    <div class="form-group">
-                        <div class="label" style="margin-right: 5px;">
-                            <label for="id_{{ field.name }}">
-                                {{ field.label }}
-                            </label>
-                        </div>
-                        <div class="field">
-                            {{ field }}
-                            <span>{{ field.errors }}</span>
+                    {% for field in modify_seller_profile_form %}
+                    <div class="x4">
+                        <div class="form-group">
+                            <div class="label" style="margin-right: 5px;">
+                                <label for="id_{{ field.name }}">
+                                    {{ field.label }}
+                                </label>
+                            </div>
+                            <div class="field">
+                                {{ field }}
+                                <span>{{ field.errors }}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                {% endfor %}
+                    {% endfor %}
                 </div>
                 <div class="form-group">
                     <div class="form-button" style="margin-left:30%;">

@@ -82,7 +82,7 @@ class ModifyBuyerProfileForm(forms.Form):
     leg_length = forms.IntegerField(label='腿长(cm)', required=False)
     nickname = forms.CharField(label='个人昵称', required=False)
     sculpture = forms.ImageField(label='个人头像', required=False)
-    introduction = forms.CharField(label='个人简介', widget=forms.Textarea(attrs={'size':10000}), required=False)
+    introduction = forms.CharField(label='个人简介', required=False)
 
 class ModifySellerProfileForm(forms.Form):
     nickname = forms.CharField(label='昵称', max_length=20, required=False)
