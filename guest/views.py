@@ -310,6 +310,7 @@ def profile(request, userid):
                     }
                 )
         add_item_form = AddItemForm()
+        selleritems = profile.selleritems.order_by('-id')
         return render_to_response(
                 'seller_page.html', 
                 RequestContext(
@@ -318,7 +319,8 @@ def profile(request, userid):
                         'modify_seller_profile_form': modify_seller_profile_form,
                         'resetpassword_form': resetpassword_form,
                         'profile': profile,
-                        'add_item_form':AddItemForm,
+                        'selleritems': selleritems,
+                        'add_item_form': add_item_form,
                     }))
     except:
         pass

@@ -53,8 +53,9 @@
                     {% include "addcontent.html" %}
                 </span>
             </div>
-                <h3 >商品1</h3>
-
+            
+                {% for item in selleritems %}
+                <h3> {{ item.name }}</h3>
                 <div class="xl12 xs6 xm4 xb3 bg">
                     <div class="media padding-bottom clearfix">
                         <a href="#">
@@ -83,8 +84,9 @@
                     </div>
                 </div>
                 <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
-
                 <br /><br /><br />
+                {% endfor %}
+<!--
                 <h3>商品2</h3>
                 <div class="xl12 xs6 xm4 xb3">
                     <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/10.jpg" class="radius img-responsive" alt="..."></a>
@@ -109,6 +111,7 @@
                 <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
             </div>
             <br /><br /><br />
+            -->
         </div>
     </div>
 </div>
