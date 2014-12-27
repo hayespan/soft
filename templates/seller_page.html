@@ -48,9 +48,10 @@
     <div class="line-big">
         <div class="xl12 bg" align="center">
             <div class="line-middle">
-                <h2 class="layout bg-main text-white padding">
-                    我的商品
-                </h2>
+                <span class="layout bg-main text-white padding" align="center">
+                    <h2>我的商品</h2>
+                    {% include "addcontent.html" %}
+                </span>
             </div>
                 <h3 >商品1</h3>
 
@@ -108,10 +109,7 @@
                 <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
             </div>
             <br /><br /><br />
-            
-            {% include "addcontent.html" %}
         </div>
-
     </div>
 </div>
 
