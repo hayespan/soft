@@ -13,5 +13,6 @@ class AddMoteForm(forms.Form):
     hip = forms.IntegerField(label='臀围')
     arm_length = forms.IntegerField(label='手长')
     shoulder_width = forms.IntegerField(label='肩宽')
-    leg_length = forms.IntegerField(label='腿长')
-    photo = forms.IntegerField(label='模特照片')
+    leg_length = forms.IntegerField()
+    photo = forms.ImageField()
+    item = forms.IntegerField()

@@ -27,7 +27,8 @@ urlpatterns = patterns('',
     url(r'^profile/resetpasswd$', 'guest.views.resetPassword'),
     url(r'^profile/modify/buyer$', 'guest.views.modifyBuyerProfile'),
     url(r'^profile/modify/seller$', 'guest.views.modifySellerProfile'),
-    url(r'^profile/add/item$','items.views.addItem'),
+    url(r'^item/add$','items.views.addItem'),
+    url(r'^item/mote/add$', 'items.views.addMote'),
 
     # 登陆注销
     url(r'^login$', 'guest.views.user_login'),

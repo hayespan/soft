@@ -194,7 +194,7 @@ def modifyBuyerProfile(request):
     修改买家资料
     """
     if request.method == 'POST':
-        form = modify_buyer_profile_form(request.POST)
+        form = ModifyBuyerProfileForm(request.POST, request.FILES)
         if form.is_valid():
             user = request.user
             b = user.buyerprofile
@@ -230,7 +230,7 @@ def modifySellerProfile(request):
     修改卖家资料
     """
     if request.method == 'POST':
-        form = modify_seller_profile_form(request.POST)
+        form = ModifySellerProfileForm(request.POST)
         if form.is_valid():
             user = request.user
             s = user.sellerprofile
@@ -310,6 +310,8 @@ def profile(request, userid):
                     }
                 )
         add_item_form = AddItemForm()
+        add_mote_form = AddMoteForm()
+        selleritems = profile.selleritems.order_by('-id')
         return render_to_response(
                 'seller_page.html', 
                 RequestContext(
@@ -318,7 +320,9 @@ def profile(request, userid):
                         'modify_seller_profile_form': modify_seller_profile_form,
                         'resetpassword_form': resetpassword_form,
                         'profile': profile,
-                        'add_item_form':AddItemForm,
+                        'selleritems': selleritems,
+                        'add_item_form': add_item_form,
+                        'add_mote_form': add_mote_form,
                     }))
     except:
         pass

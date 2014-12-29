@@ -53,8 +53,16 @@
                     {% include "addcontent.html" %}
                 </span>
             </div>
-                <h3 >商品1</h3>
-
+            
+                {% for item in selleritems %}
+            <div class="line">
+                <br/>
+                <span>
+                    <h3> {{ item.name }}</h3>
+                    {% include "addmote.html" %} 
+                </span>
+                <br/>
+                <br/>
                 <div class="xl12 xs6 xm4 xb3 bg">
                     <div class="media padding-bottom clearfix">
                         <a href="#">
@@ -82,33 +90,10 @@
                         <div class="media-body"> <strong>戳我~~~~</strong>  </div>
                     </div>
                 </div>
-                <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
-
-                <br /><br /><br />
-                <h3>商品2</h3>
-                <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/10.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/11.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/12.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/13.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <button class="button bg-sub radius-rounded"><a href="#">添加模特</a></button>
+                <br/>
+                <br /><br /><br /><br/>
             </div>
-            <br /><br /><br />
+                {% endfor %}
         </div>
     </div>
 </div>
