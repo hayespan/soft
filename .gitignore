@@ -1,6 +1,6 @@
 *.pyc
 *.swp
 *.swo
-static/
+static/images/
 media/
 statictmp/
