@@ -7,7 +7,7 @@
         </div>
         <div class="dialog-body" >
             <form method="post" class="form form-block"
-                enctype="multipart/form-data" action="/profile/add/item">
+                enctype="multipart/form-data" action="/item/add">
                 {% csrf_token %}
                 {% for field in add_item_form %}
                     <div class="form-group">

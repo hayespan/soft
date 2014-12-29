@@ -48,3 +48,44 @@ def addItem(request):
             return HttpResponseRedirect('/profile/%d' % user.id)
     return HttpResponseRedirect('/')
 
+@login_required
+def addMote(request):
+    """
+    添加模特
+    """
+    if request.method == 'POST':
+        user = request.user
+        form = AddMoteForm(request.POST, request.FILES)
+        if form.is_valid():
+            itemid = form.cleaned_data['item']
+            try:
+                item = Product.objects.get(id=itemid)
+            except:
+                return HttpResponse('Item does not exist.')
+            height = form.cleaned_data['height']
+            weight = form.cleaned_data['weight']
+            bust = form.cleaned_data['bust']
+            waist = form.cleaned_data['waist']
+            hip = form.cleaned_data['hip']
+            arm_length = form.cleaned_data['arm_length']
+            shoulder_width = form.cleaned_data['shoulder_width']
+            leg_length = form.cleaned_data['leg_length']
+            photo = form.cleaned_data['photo']
+            newmote = Mote(
+                    products = item,
+                    height = height,
+                    weight = weight,
+                    bust = bust,
+                    waist = waist,
+                    hip = hip,
+                    arm_length = arm_length,
+                    shoulder_width = shoulder_width,
+                    leg_length = leg_length,
+                    photo = photo,
+                    )
+            newmote.save()
+            return HttpResponseRedirect('/profile/%d' % user.id)
+        else:
+            print form.errors
+            return HttpResponse('form error')
+    return HttpResponseRedirect('/')

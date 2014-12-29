@@ -1,0 +1,122 @@
+<button style="float:center" class="button bg-main dialogs" data-toggle="click"data-target="#addmodel-dialog" data-mask="1" data-width="50%">添加模特</button>
+
+<div id="addmodel-dialog">
+    <div class="dialog">
+        <div class="dialog-head">
+            <span class="close rotate-hover"></span>
+            <strong>添加模特</strong>
+        </div>
+        <div class="dialog-body">
+            <form method="post" class="form-inline" enctype="multipart/form-data" action="/item/mote/add">
+                {% csrf_token %}
+                <table class="table table-condensed">
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">身高</span>
+                                    <input type="text" class="input" id="height"
+                                    name="{{ add_mote_form.height.name }}" size="5" placeholder="身高" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">体重</span>
+                                    <input type="text" class="input" id="weight"
+                                    name="{{ add_mote_form.weight.name }}" size="5" placeholder="体重" />
+                                    <span class="addon">kg</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">胸围</span>
+                                    <input type="text" class="input" id="bust"
+                                    name="{{ add_mote_form.bust.name }}" size="5" placeholder="胸围" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">腰围</span>
+                                    <input type="text" class="input"
+                                    id="waist" name="{{add_mote_form.waist.name }}" size="5" placeholder="腰围" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">臀围</span>
+                                    <input type="text" class="input" id="hip"
+                                    name="{{ add_mote_form.hip.name }}" size="5" placeholder="臀围" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">臂长</span>
+                                    <input type="text" class="input" id="arm"
+                                    name="{{ add_mote_form.arm_length.name }}" size="5" placeholder="臂长" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">肩宽</span>
+                                    <input type="text" class="input"
+                                    id="shoulder_width"
+                                    name="{{ add_mote_form.shoulder_width.name }}"
+                                    size="5" placeholder="肩宽" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="field">
+                                <div class="input-group">
+                                    <span class="addon">腿长</span>
+                                    <input type="text" class="input" id="leg"
+                                    name="{{ add_mote_form.leg_length.name }}"
+                                    size="5" placeholder="腿长" />
+                                    <span class="addon">cm</span>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <div class="field">
+                        {{ add_mote_form.photo }}
+                        <!-- <input class="button input-file" type="file" -->
+                        <!-- name="{{ add_mote_form.photo.name }}" /> -->
+                        <input type="hidden" value="{{ item.id }}" name="item"/>
+                    </div>                      
+                </table>
+                <br/>
+                <div class="form-group">
+                    <div class="form-button" style="margin-left:30%;">
+                        <div class="button dialog-close" type="reset">取消</div>
+                        <button type="submit" class="button"><span class="icon-check text-blue"></span> 提交</button>
+                        <!-- <input class="button bg-green" type="submit" -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
