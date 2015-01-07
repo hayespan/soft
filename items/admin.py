@@ -2,7 +2,8 @@
 __author__ = 'Liuzhen'
 
 from django.contrib import admin
-from .models import Product, Mote
+from .models import *
 
 admin.site.register(Product)
 admin.site.register(Mote)
+admin.site.register(Share)

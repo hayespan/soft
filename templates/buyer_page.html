@@ -50,46 +50,55 @@
             <div class="line-middle">
                 <h2 class="layout bg-main text-white padding"> 我分享过：</h2>
                 <br />
+                
+                {% for item in profile.buyeritem.all %}
                 <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f3.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
+                    <div class="media padding-bottom clearfix"> <img src=" {{item.itemmotes.all.0.photo.url }}" class="radius img-responsive" alt="..."></a>
+                        <div class="media-body"> 
+                            <strong>{{ item.caption }}</strong> </div>
                     </div>
                 </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f1.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f2.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f0.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f4.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f5.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f6.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f7.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
+                {% endfor %}
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f3.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f1.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f2.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f0.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f4.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f5.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f6.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/f7.jpg" class="radius img-responsive" alt="..."></a> -->
+                        <!-- <div class="media-body"> <strong>戳我~~~~</strong> </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
             </div>
         </div>
     </div>
