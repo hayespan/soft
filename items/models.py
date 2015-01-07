@@ -17,7 +17,7 @@ class Product(models.Model):
         return self.name
 # Create your models here.
 class Mote(models.Model):
-    products = models.ForeignKey(Product, related_name='itemmote')
+    products = models.ForeignKey(Product, related_name='itemmotes')
     height = models.IntegerField()
     weight = models.IntegerField()
     bust = models.IntegerField()
