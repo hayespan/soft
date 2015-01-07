@@ -1,15 +1,15 @@
-{% extends "base.html" %}
-
-{% block content %}
+{% extends "base.html" %}{% block content %}
 
 <div class="container" align="center">
     <div class="panel">
         <div class="panel-head">
-            <button class="button dialogs" style="display:block;" data-toggle="click" data-target="#sharingdialog" align="center"data-mask="1" data-width="50%">分享</button>
+            <form method="post">
+            {% csrf_token %}
+                <button type="submit" class="button dialogs" style="display:block;" data-toggle="click" data-target="#sharingdialog" align="center"data-mask="1" data-width="50%">分享</button>
+            </form>
             <div id="sharingdialog">
                 <div class="dialog">
-                    <div class="dialog-head">
-                        <div class="dialog-close close rotate-hover"></div>
+                    <div class="dialog-head">                        <div class="dialog-close close rotate-hover"></div>
                     </div>
                     <div class="dialog-body">
                         分享成功~
@@ -27,7 +27,7 @@
 <div class="container">
     <div class="panel;" align="center">
         <div class="panel-body">
-            <img id="bg" src="/static/images/10.jpg"/>
+            <img id="bg" src="{{ mote.photo.url }}"/>
         </div>
     </div>
 </div>

@@ -4,10 +4,10 @@
 <!--滚动屏-->
 <div class="banner" data-style="border-blue">
     <div class="carousel">
-        <div class="item" align=center><img src="/static/images/banner4.jpg" width="100%" /></div>  <!--align=center 图片居中对齐-->
-        <div class="item" align=center><img src="/static/images/banner5.jpg" width="100%" /></div>  <!--width可改图片宽度-->
-        <div class="item" align=center><img src="/static/images/banner6.jpg" width="100%" /></div>  <!--src=图片路径-->
-        <div class="item" align=center><img src="/static/images/banner7.jpg" width="100%" /></div>  <!--src=图片路径-->
+        <div class="item" align=center><img src="/static/images/banner4.jpg" width="60%" /></div>  <!--align=center 图片居中对齐-->
+        <div class="item" align=center><img src="/static/images/banner5.jpg" width="60%" /></div>  <!--width可改图片宽度-->
+        <div class="item" align=center><img src="/static/images/banner6.jpg" width="60%" /></div>  <!--src=图片路径-->
+        <div class="item" align=center><img src="/static/images/banner7.jpg" width="60%" /></div>  <!--src=图片路径-->
     </div>
 </div>
 <br />
@@ -21,16 +21,17 @@
                 <h2 class="layout bg-main text-white padding"> 热门推荐</h2>
                 <br />
                 {% for item in items %}
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
+                <div class="xl12 xs6 xm4 xb3 bg" style="float:left;">
+                    <div class="media padding-bottom clearfix">
                         <a href = "/fitting/{{ item.0.id }}">
-                        <img src="{{ item.1.photo.url }}" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						<!-- 新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款</a> -->
-                        {{ item.0.caption }}
-                        </div></a>
-					</div>
-				</div>
+                            <img src="{{ item.1.photo.url }}" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
+                            <div class="media-body" style="font-size:8px;">
+                                <!-- 新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款</a> -->
+                                {{ item.0.caption }}
+                            </div>
+                        </a>
+                    </div>
+                </div>
                 {% endfor %}
 				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
 					<!-- <div class="media padding-bottom clearfix"> -->
@@ -93,11 +94,14 @@
         <div class="xl12 xm4">
             <h2 class="bg-main text-white padding">最新分享</h2>
             <div class="padding-big bg">
-				<font style="color:blue;">Ph智</font> 刚刚 分享了<br><a href="#">风衣外套秋冬帅气双排扣外套多色卡其巧克力米白<br><br></a>
-				<font style="color:blue;">阿振</font> 5分钟前 分享了<br><a href="#">冬日热卖温暖宽松加绒多花纹纯色毛衣<br><br></a>
-				<font style="color:blue;">奕芳</font> 8分钟前 分享了<br><a href="#">秋冬新款装韩版连帽百搭修身抓绒肚兜套头卫衣少女<br><br></a>
-				<font style="color:blue;">文蕾</font> 30分钟前 分享了 <br><a href="#">新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款<br><br></a>
-				<font style="color:blue;">狒狒</font> 1小时前 分享了 <br><a href="#">风衣外套秋冬帅气双排扣外套多色卡其巧克力米白<br><br></a>
+            {% for i in share %}
+                <font style="color:blue;">{{ i.buyerprofile.nickname }}</font> 刚刚
+                分享了 <a style="color:red;" href="#">{{ i.item.name }}<br><br></a>
+            {% endfor %}
+				<!-- <font style="color:blue;">阿振</font> 5分钟前 分享了<br><a href="#">冬日热卖温暖宽松加绒多花纹纯色毛衣<br><br></a> -->
+				<!-- <font style="color:blue;">奕芳</font> 8分钟前 分享了<br><a href="#">秋冬新款装韩版连帽百搭修身抓绒肚兜套头卫衣少女<br><br></a> -->
+				<!-- <font style="color:blue;">文蕾</font> 30分钟前 分享了 <br><a href="#">新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款<br><br></a> -->
+				<!-- <font style="color:blue;">狒狒</font> 1小时前 分享了 <br><a href="#">风衣外套秋冬帅气双排扣外套多色卡其巧克力米白<br><br></a> -->
             </div>
             <br />
         </div>

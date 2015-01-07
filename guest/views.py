@@ -3,6 +3,7 @@
 from datetime import datetime
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.db.models.aggregates import Count
 from models import *
 from forms import *
 from items.forms import *
@@ -78,7 +79,7 @@ def register_page2(request):
                         introduction=introduction
                         ) 
                 if sculpture:
-                    newbuyer.sculpture.save(str(datetime.now())+'.jpg', sculpture, save=False)
+                    newbuyer.sculpture.save(str(datetime.now())+'.png', sculpture, save=False)
                 newbuyer.save()
 
                 #删除缓存
@@ -136,7 +137,7 @@ def register_page3(request):
                         introduction=introduction
                         ) 
                 if sculpture:
-                    newseller.sculpture.save(str(datetime.now())+'.jpg', sculpture, save=False)
+                    newseller.sculpture.save(str(datetime.now())+'.png', sculpture, save=False)
                 newseller.save()
 
                 #删除缓存
@@ -173,13 +174,63 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
 def home(request):
-    items = Product.objects.annotate(motecnt=Count('itemmotes')).filter(=0).order_by('-id')[:8]
+    share = Share.objects.order_by('-id')[:10]
+    items = Product.objects.annotate(motecnt=Count('itemmotes')).filter(motecnt__gt=0).order_by('-id')[:8]
     item_motes = []
     for i in items:
         item_motes.append([i, i.itemmotes.all()[0]])
     return render_to_response('home.html', 
                             RequestContext(request,
-                                {'items': item_motes}))
+                                {'items': item_motes,
+                                 'share': share, 
+                                    }))
+
+@login_required
+def fittingRoom(request, itemid):
+    """
+    进入试衣间
+    """
+    if request.method == 'POST':
+        user = request.user
+        profile = user.buyerprofile
+        item = Product.objects.get(id=itemid)
+        share = Share.objects.create(buyerprofile=profile, item=item)
+        share.save()
+        return HttpResponseRedirect('/')
+
+    else:
+        user = request.user
+        try:
+            profile = user.buyerprofile
+            item = Product.objects.get(id=int(itemid))
+            mote = item.itemmotes.all()
+            emax = 1000000
+            j = mote[0]
+            for i in mote:
+                e = (
+                        (profile.height - i.height)**2 +
+                        (profile.weight - i.weight)**2 +
+                        (profile.bust   - i.bust)**2 +
+                        (profile.waist  - i.waist)**2 +
+                        (profile.hip    - i.hip)**2 +
+                        (profile.arm_length - i.arm_length)**2 +
+                        (profile.shoulder_width - i.shoulder_width)**2 +
+                        (profile.leg_length  - i.leg_length)**2 
+                    )
+                if (e < emax):
+                    emax = e
+                    j = i
+
+            return render_to_response(
+                    'fitting.html', 
+                    RequestContext(
+                        request, 
+                        {
+                            'mote': j,
+                            'profile': profile,
+                        }))
+        except:
+            return HttpResponse("error, 只有买家才能进入试衣间")
 
 @login_required
 def resetPassword(request):
