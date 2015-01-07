@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from models import *
 from forms import *
 from items.forms import *
+from items.models import *
 from django.http import HttpResponseRedirect
 from django.template import RequestContext
 from django.contrib.auth import login, logout, authenticate
@@ -172,7 +173,13 @@ def user_logout(request):
     return HttpResponseRedirect('/')
 
 def home(request):
-    return render_to_response('home.html', RequestContext(request))
+    items = Product.objects.annotate(motecnt=Count('itemmotes')).filter(=0).order_by('-id')[:8]
+    item_motes = []
+    for i in items:
+        item_motes.append([i, i.itemmotes.all()[0]])
+    return render_to_response('home.html', 
+                            RequestContext(request,
+                                {'items': item_motes}))
 
 @login_required
 def resetPassword(request):

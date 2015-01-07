@@ -20,70 +20,74 @@
             <div class="line-middle">
                 <h2 class="layout bg-main text-white padding"> 热门推荐</h2>
                 <br />
+                {% for item in items %}
 				<div class="xl12 xs6 xm4 xb3 bg">
 					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f3.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
+                        <a href = "/fitting/{{ item.0.id }}">
+                        <img src="{{ item.1.photo.url }}" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
 						<div class="media-body" style="font-size:8px;">
-						新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款</a>
-						</div>
+						<!-- 新款女装秋冬季修身针织打底连衣裙 学院风长袖波点蓬蓬裙中长款</a> -->
+                        {{ item.0.caption }}
+                        </div></a>
 					</div>
 				</div>
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f1.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						卫衣女外套女秋冬新款装韩版连帽百搭修身卫衣少女 拉链</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f2.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						女装修身翻领收腰连衣裙外套中长款</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f0.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						冬日热卖温暖宽松加绒多花纹纯色毛衣</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f4.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						热卖新款女装淑女雪纺百褶连衣裙半袖</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f5.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						秋冬新款装韩版连帽百搭修身抓绒肚兜套头卫衣少女</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f6.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						风衣外套秋冬帅气双排扣外套多色卡其巧克力米白</a>
-						</div>
-					</div>
-				</div>
-				<div class="xl12 xs6 xm4 xb3 bg">
-					<div class="media padding-bottom clearfix">
-						<a href="#"><img src="/static/images/f7.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="...">
-						<div class="media-body" style="font-size:8px;">
-						春夏新款女装收腰修身雪纺清新纯色连衣裙</a>
-						</div>
-					</div>
-				</div>
+                {% endfor %}
+				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f1.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 卫衣女外套女秋冬新款装韩版连帽百搭修身卫衣少女 拉链</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f2.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 女装修身翻领收腰连衣裙外套中长款</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f0.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 冬日热卖温暖宽松加绒多花纹纯色毛衣</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f4.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 热卖新款女装淑女雪纺百褶连衣裙半袖</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f5.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 秋冬新款装韩版连帽百搭修身抓绒肚兜套头卫衣少女</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f6.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 风衣外套秋冬帅气双排扣外套多色卡其巧克力米白</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
+				<!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+					<!-- <div class="media padding-bottom clearfix"> -->
+						<!-- <a href="#"><img src="/static/images/f7.jpg" class="radius img-responsive" style="width: 188px; height:188px;" alt="..."> -->
+						<!-- <div class="media-body" style="font-size:8px;"> -->
+						<!-- 春夏新款女装收腰修身雪纺清新纯色连衣裙</a> -->
+						<!-- </div> -->
+					<!-- </div> -->
+				<!-- </div> -->
             </div>
         </div>
         <div class="xl12 xm4">
