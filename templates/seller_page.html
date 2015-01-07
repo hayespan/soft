@@ -63,33 +63,29 @@
                 </span>
                 <br/>
                 <br/>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix">
-                        <a href="#">
-                            <img src="/static/images/00.jpg" class="radius img-responsive" alt="...">
-                        </a>
+                {% for mote in item.itemmotes.all %}
+                    <div class="xl12 xs6 xm4 xb3 bg">
+                        <div class="media padding-bottom clearfix"> 
+                            <img src="{{ mote.photo.url }}" class="radius img-responsive" alt="..."></a>
+                        </div>
+                        <div class="media-body">
+                            <strong>
+                                模特资料:身高{{ mote.height }} 
+                            </strong>
+                        </div>
                     </div>
-                    <div class="media-body">
-                        <strong>
-                            戳我~~~~
-                        </strong>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/01.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/02.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong> </div>
-                    </div>
-                </div>
-                <div class="xl12 xs6 xm4 xb3 bg">
-                    <div class="media padding-bottom clearfix"> <a href="#"><img src="/static/images/03.jpg" class="radius img-responsive" alt="..."></a>
-                        <div class="media-body"> <strong>戳我~~~~</strong>  </div>
-                    </div>
-                </div>
+                {% endfor %}
+                <!-- <div class="xl12 xs6 xm4 xb3 bg"> -->
+                    <!-- <div class="media clearfix">  -->
+                        <!-- <a href="#" onmouseover=show("deleting1"); onmouseout=hide("deleting1");> -->
+                            <!-- <img src="/static/images/01.jpg" class="radius img-responsive" alt="..."> -->
+                        <!-- </a> -->
+                    <!-- <div id="deleting1" style="z-index:1; position: absolute; top:0; right:5px; display:none;"> -->
+                        <!-- <a class="text-black dialogs close" data-toggle="click" data-target="#deletedialog" data-mask="1" data-width="40%"></a> -->
+                    <!-- </div> -->
+                    <!-- </div> -->
+                <!-- </div> -->
+      
                 <br/>
                 <br /><br /><br /><br/>
             </div>
